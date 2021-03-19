@@ -35,10 +35,10 @@ function extractHtml(html){
             // console.log("````````````````"+teamArr[j] + "````````````````````````");
             for(let k=0;k<singleBatsmanRow.length-1;k=k+2){
                 let allCols=selectorTool(singleBatsmanRow[k]).find("td");
-                let final=selectorTool(allCols[0]).text();
+                let name=selectorTool(allCols[0]).text();
                 // let a= " -> "+tName[0]; 
                 // final = final + a;
-                console.log(final + "  of  " + teamArr[j]);
+                console.log(name + "  of  " + teamArr[j]);
             }
             console.log("````````````````````````````````");
             
