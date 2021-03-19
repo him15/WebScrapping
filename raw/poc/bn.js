@@ -23,19 +23,22 @@ function extractHtml(html){
     
     let teamName=selectorTool(".row.no-gutters.align-items-center");
     console.log(teamName.length);
+    let teamArr=[];
     for(let i=0;i<2;i++){
         let tName = selectorTool(teamName[i]).text();
         tName=tName.split("INNINGS");
+        teamArr[i]=tName[0];
+    }
 
-        for(let j=0;j<batsmanTab.length;j=j+2){
-            let singleBatsman=selectorTool(batsmanTab[j]).find("tbody tr"); // gives rows of the batsman..
-            
-            for(let k=0;k<singleBatsman.length-1;k++){
-                let batsman=selectorTool(singleBatsman[k]).find("td");
-                let final=selectorTool(batsman[0]).text();
-                let a= " -> "+tName[0]; 
-                final = final + a;
-                console.log(final);
+        for(let j=0;j<batsmanTab.length;j++){
+            let singleBatsmanRow=selectorTool(batsmanTab[j]).find("tbody tr"); // gives rows of the batsman..
+            // console.log("````````````````"+teamArr[j] + "````````````````````````");
+            for(let k=0;k<singleBatsmanRow.length-1;k=k+2){
+                let allCols=selectorTool(singleBatsmanRow[k]).find("td");
+                let final=selectorTool(allCols[0]).text();
+                // let a= " -> "+tName[0]; 
+                // final = final + a;
+                console.log(final + "  of  " + teamArr[j]);
             }
             console.log("````````````````````````````````");
             
@@ -55,6 +58,4 @@ function extractHtml(html){
     // }
 
     // console.log(stringHtml);
-
-}
 
